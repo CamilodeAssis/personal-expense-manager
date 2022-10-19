@@ -12,11 +12,19 @@ app.use(express.urlencoded({ extended: false }));
 (async () => {
     const database = require('./models/db');
     const Item = require('./models/item');
-    await database.sync();
+    
 
    
-    const items = await Item.findAll();
+    
 
+    const novoItem = await Item.create({
+        date: '2022-10-19',
+        title: 'Restaurant',
+        category: 'Food',
+        value: 40.45,
+    });
+
+    const items = await Item.findAll();
 
     app.route('/getItems').get((req, res) => {
         res.send(items);

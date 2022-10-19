@@ -9,7 +9,7 @@ import { getCurrentMonth, filterListByMonth } from './helpers/dateFilter'
 
 function App() {
 
-  const [listItems, setListItems] = useState<Item[] | any>();
+  const [listItems, setListItems] = useState<Item[] | any >();
   const [filteredList, setFilteredList] = useState<Item[] | any>([]);
   const [currentMonth, setCurrentMonth] = useState(getCurrentMonth());
 
@@ -17,15 +17,18 @@ function App() {
     let data = await api.getItems();
     if (data) {
       setListItems(data);
+      console.log('aqui setando o valor',listItems);
+      setFilteredList(filterListByMonth(listItems, currentMonth));
+      
     }
   }
 
+
   useEffect(() => {
     loadApi();
-    setFilteredList(filterListByMonth(listItems, currentMonth));
-  }, [listItems, currentMonth]);
+  }, []); 
 
- 
+
 
   return (
     <div>
@@ -41,9 +44,10 @@ function App() {
 
         {/*insert content area*/}
 
-    
-        <TableArea list={filteredList}  />
-        
+
+
+        <TableArea list={filteredList} />
+
 
       </div>
     </div>
