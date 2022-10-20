@@ -1,3 +1,4 @@
+import { TableItems } from "../components/TableItems";
 import { Item } from "../types/item";
 
 export const getCurrentMonth = () => {
@@ -20,27 +21,19 @@ export const filterListByMonth = (list:Item [] , date: string) => {
     }
 
     return newList;
-  
 
-    // if (Array.isArray(list)){
-    //     console.log("é array");
-    //     let [year, month] = date.split('-');
-
-    //     console.log("aqui o list" ,list);
-
-
-    //     const filtroComMap = list.map((item, index) => {
-    //       item.date
-    //     })
-
-    //     console.log(filtroComMap);
-
-    //     const filtro = list.filter((item) => { new Date (item.date).getFullYear() === parseInt(year) && new Date (item.date).getMonth() + 1  === parseInt(month) })
-
-    //     console.log(filtro);
-    //     return filtro;  
-    // } else {
-    //     console.log("não é array");
-    // }
-  
 }
+
+export const formatDate = (date: Date): string => {
+    let newDate = new Date(date);
+
+    let year = newDate.getFullYear();
+    let month = newDate.getMonth() +1;
+    let day = newDate.getDate();
+
+    
+
+    return `${addZero(day)}/${addZero(month)}/${year}`
+}
+
+const addZero = (n: number): string => n < 10 ? `0${n}` : `${n}`;
