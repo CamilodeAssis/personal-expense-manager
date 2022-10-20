@@ -7,18 +7,40 @@ export const getCurrentMonth = () => {
 
 export const filterListByMonth = (list:Item [] , date: string) => {
    
-  
+    let newList: Item[] = [];
+    let [year, month] = date.split('-');
 
-    if (Array.isArray(list)){
-        console.log("é array");
-        let [year, month] = date.split('-');
-
-        const filtro = list.filter((item) => { item.date.getFullYear() === parseInt(year) && (item.date.getMonth() + 1) === parseInt(month) })
-
-        return filtro;  
-    } else {
-        console.log("não é array");
+    for(let i in list) {
+        if(
+            new Date (list[i].date).getFullYear() === parseInt(year) &&
+            (new Date (list[i].date).getMonth() + 1) === parseInt(month)
+        ) {
+            newList.push(list[i]);
+        }
     }
 
-    
+    return newList;
+  
+
+    // if (Array.isArray(list)){
+    //     console.log("é array");
+    //     let [year, month] = date.split('-');
+
+    //     console.log("aqui o list" ,list);
+
+
+    //     const filtroComMap = list.map((item, index) => {
+    //       item.date
+    //     })
+
+    //     console.log(filtroComMap);
+
+    //     const filtro = list.filter((item) => { new Date (item.date).getFullYear() === parseInt(year) && new Date (item.date).getMonth() + 1  === parseInt(month) })
+
+    //     console.log(filtro);
+    //     return filtro;  
+    // } else {
+    //     console.log("não é array");
+    // }
+  
 }

@@ -14,15 +14,6 @@ app.use(express.urlencoded({ extended: false }));
     const Item = require('./models/item');
     
 
-   
-    
-
-    const novoItem = await Item.create({
-        date: '2022-10-19',
-        title: 'Restaurant',
-        category: 'Food',
-        value: 40.45,
-    });
 
     const items = await Item.findAll();
 
