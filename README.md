@@ -1,4 +1,4 @@
-# Personal Expense Manager - Aplicativo para registrar e controlar seus gastos e ganhos pessoais
+# Personal Expense Manager - Aplicativo para registrar, controlar seus gastos e ganhos pessoais
 ## Em construção...
 
 ### Tecnologias utilizadas:
