@@ -1,4 +1,4 @@
-# To-do List - Aplicativo para anotações de afazeres do dia a dia.
+# Personal Expense Manager - Aplicativo para registrar e controlar seus gastos e ganhos pessoais
 ## Em construção...
 
 ### Tecnologias utilizadas:
