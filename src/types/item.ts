@@ -4,6 +4,6 @@ export type Item = {
     category: string;
     title: string;
     value: number;
-    createdAt?: Date | any;
-    updatedAt?: Date | any;
+    createdAt?: Date ;
+    updatedAt?: Date;
 }   

@@ -29,11 +29,22 @@ export const formatDate = (date: Date): string => {
 
     let year = newDate.getFullYear();
     let month = newDate.getMonth() +1;
-    let day = newDate.getDate();
+    let day = newDate.getDate() +1;
+
+    
+    return `${addZero(day)}/${addZero(month)}/${year}`
+}
+const addZero = (n: number): string => n < 10 ? `0${n}` : `${n}`;
+
+
+export const formatMonth = (getCurrentMonth: string): string => {
+    let [year, month] = getCurrentMonth.split('-');
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
     
 
-    return `${addZero(day)}/${addZero(month)}/${year}`
+    return `${months[parseInt(month)-1]} ${year}`
 }
 
-const addZero = (n: number): string => n < 10 ? `0${n}` : `${n}`;
+
+
